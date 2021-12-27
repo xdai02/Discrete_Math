@@ -1,0 +1,378 @@
+\documentclass[12pt, openany, oneside]{book}
+
+\usepackage{listings}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{ctex}
+\usepackage{fontspec}
+\usepackage{setspace}
+\usepackage{tikz}
+\usepackage{anyfontsize}
+\usepackage{sectsty}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+\usepackage[a4paper]{geometry}
+\usepackage{url}
+\usepackage{amssymb}
+\usepackage{fontawesome5}
+\usepackage[most]{tcolorbox}
+% \usepackage{minted}
+
+\definecolor{mycolor}{RGB}{0,128,128}
+\newtcbox{\mybox} {
+    on line,
+    colback=mycolor,
+    fontupper=\bfseries\color{white},
+    boxrule=0pt,
+    arc=5pt, 
+    boxsep=0pt, 
+    left=2pt, 
+    right=2pt, 
+    top=5pt, 
+    bottom=5pt
+}
+
+\usetikzlibrary{calc}
+\usetikzlibrary{calc,shapes.multipart,chains,arrows}
+
+\setstretch{1.5}
+\setlength{\parindent}{0cm}
+
+\geometry{a4paper,top=2.5cm,bottom=2.5cm}
+
+\titleformat{\chapter}{\Huge\Huge\bfseries}{\chaptertitlename\ \thechapter{\ }}{0pt}{\Huge}{}
+\titlespacing{\chapter}{0pt}{0pt}{12pt}
+
+\definecolor{dkgreen}{rgb}{0,0.4,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{LightGray}{gray}{0.9}
+
+\lstset{
+    basicstyle=\normalsize \fontspec{Consolas},    %  the size of the fonts that are used for the code
+    numbers=left,            % where to put the line-numbers
+    numberstyle=\color{black},  % the style that is used for the line-numbers
+    numbersep=10pt,                  % how far the line-numbers are from the code
+    backgroundcolor=\color{white},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    frame=single,                   % adds a frame around the code
+    rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+    tabsize=4,                      % sets default tabsize to 2 spaces
+    captionpos=t,                   % sets the caption-position to bottom
+    breaklines=false,                % sets automatic line breaking
+    breakatwhitespace=true,        % sets if automatic breaks should only happen at whitespace
+    title=\lstname,                   % show the filename of files included with \lstinputlisting;
+    % also try caption instead of title
+    numberstyle=\color{black},		% line number color
+    keywordstyle=\color{blue},          % keyword style
+    commentstyle=\color{dkgreen},       % comment style
+    stringstyle=\color{mauve},         % string literal style
+    escapeinside={\%*}{*)},            % if you want to add LaTeX within your code
+    morekeywords={*,...}               % if you want to add more keywords to the set
+}
+
+\begin{document}
+
+\pagestyle{plain}
+
+\begin{tikzpicture}[overlay,remember picture]
+    % Background color
+    \fill[
+        black!2]
+    (current page.south west) rectangle (current page.north east);
+
+    % Rectangles
+    \shade[
+        left color=Dandelion,
+        right color=Dandelion!40,
+        transform canvas ={rotate around ={45:($(current page.north west)+(0,-6)$)}}]
+    ($(current page.north west)+(0,-6)$) rectangle ++(9,1.5);
+
+    \shade[
+        left color=lightgray,
+        right color=lightgray!50,
+        rounded corners=0.75cm,
+        transform canvas ={rotate around ={45:($(current page.north west)+(.5,-10)$)}}]
+    ($(current page.north west)+(0.5,-10)$) rectangle ++(15,1.5);
+
+    \shade[
+        left color=lightgray,
+        rounded corners=0.3cm,
+        transform canvas ={rotate around ={45:($(current page.north west)+(.5,-10)$)}}] ($(current page.north west)+(1.5,-9.55)$) rectangle ++(7,.6);
+
+    \shade[
+        left color=orange!80,
+        right color=orange!60,
+        rounded corners=0.4cm,
+        transform canvas ={rotate around ={45:($(current page.north)+(-1.5,-3)$)}}]
+    ($(current page.north)+(-1.5,-3)$) rectangle ++(9,0.8);
+
+    \shade[
+        left color=red!80,
+        right color=red!80,
+        rounded corners=0.9cm,
+        transform canvas ={rotate around ={45:($(current page.north)+(-3,-8)$)}}] ($(current page.north)+(-3,-8)$) rectangle ++(15,1.8);
+
+    \shade[
+        left color=orange,
+        right color=Dandelion,
+        rounded corners=0.9cm,
+        transform canvas ={rotate around ={45:($(current page.north west)+(4,-15.5)$)}}]
+    ($(current page.north west)+(4,-15.5)$) rectangle ++(30,1.8);
+
+    \shade[
+        left color=RoyalBlue,
+        right color=Emerald,
+        rounded corners=0.75cm,
+        transform canvas ={rotate around ={45:($(current page.north west)+(13,-10)$)}}]
+    ($(current page.north west)+(13,-10)$) rectangle ++(15,1.5);
+
+    \shade[
+        left color=lightgray,
+        rounded corners=0.3cm,
+        transform canvas ={rotate around ={45:($(current page.north west)+(18,-8)$)}}]
+    ($(current page.north west)+(18,-8)$) rectangle ++(15,0.6);
+
+    \shade[
+        left color=lightgray,
+        rounded corners=0.4cm,
+        transform canvas ={rotate around ={45:($(current page.north west)+(19,-5.65)$)}}]
+    ($(current page.north west)+(19,-5.65)$) rectangle ++(15,0.8);
+
+    \shade[
+        left color=OrangeRed,
+        right color=red!80,
+        rounded corners=0.6cm,
+        transform canvas ={rotate around ={45:($(current page.north west)+(20,-9)$)}}]
+    ($(current page.north west)+(20,-9)$) rectangle ++(14,1.2);
+
+    % Year
+    % \draw[ultra thick,gray]
+    % ($(current page.center)+(5,2)$) -- ++(0,-3cm)
+    node[
+            midway,
+            left=0.25cm,
+            text width=5cm,
+            align=right,
+            black!75
+        ]
+        {
+            % {\fontsize{25}{30} \selectfont \bf ANNUAL \\[10pt] REPORT}
+        }
+    node[
+            midway,
+            right=0.25cm,
+            text width=6cm,
+            align=left,
+            orange]
+        {
+            % {\fontsize{72}{86.4} \selectfont 2020}
+        };
+
+    % Title
+    \node[align=center] at ($(current page.center)+(0,-5)$)
+    {
+    {\fontsize{72}{72} \selectfont {{离散数学}}} \\[1cm]
+    {\fontsize{42}{42} \selectfont {{Discrete Mathematics}}} \\[2cm]
+    {\fontsize{20}{19.2} \selectfont \textcolor{orange}{ \bf 极夜酱}} \\[4pt]
+    };
+\end{tikzpicture}
+
+\newpage
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+\thispagestyle{empty}
+
+\newpage
+
+\setcounter{page}{1}
+
+\chapter{逻辑}
+
+\section{命题}
+
+\subsection{命题（Proposition）}
+
+逻辑（logic）规则给出数学语句的准确含义，这些规则用来区分有效和无效的数学论证。逻辑不仅对理解数学推理十分重要，而且在计算机科学中有许多应用，逻辑可用于电路设计、程序构造、程序正确性证明等方面。 \\
+
+命题是逻辑的基本成分，一个命题是一个具有真值（truth value）的语句，命题可以为真也可以为假，但不能既为真又为假。 \\
+
+\begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{5mm}{
+        \begin{tabular}{|c|c|}
+            \hline
+            \textbf{命题}        & \textbf{非命题}    \\
+            \hline
+            I have a dog.        & What day is today? \\
+            \hline
+            1 + 2 = 3            & Shut the door!     \\
+            \hline
+            Today is Wednesday.  & 1 + 2              \\
+            \hline
+            It is snowing today. & x + 1 = 2          \\
+            \hline
+        \end{tabular}
+    }
+\end{table}
+
+命题习惯上用字母$ p $, $ q $, $ r $, $ s $等来表示，如果一个命题是真命题，它的真值为真，用T表示；如果一个命题是假命题，它的真值为假，用F表示。 \\
+
+\subsection{非运算符（NOT, Negation Operator）}
+
+非运算符$ \neg $只作用于一个命题，其作用是反转命题的真值。 \\
+
+真值表（truth table）可以给出命题真值之间的关系，在确定由简单命题组成的命题的真值时，真值表特别有用。
+
+\begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{5mm}{
+        \begin{tabular}{|c|c|}
+            \hline
+            \textbf{$ p $} & \textbf{$ \neg p $} \\
+            \hline
+            T              & F                   \\
+            \hline
+            F              & T                   \\
+            \hline
+        \end{tabular}
+    }
+    \caption{NOT真值表}
+\end{table}
+
+\begin{tcolorbox}
+    \mybox{Exercise}
+    $ \neg p $ \\
+    $ p $: It snowed last night. \\
+    $ \neg p $: It didn;t snow last night. \\
+    $ q $: $ 2 + 3 = 6 $ \\
+    $ \neg q $: $ 2 + 3 \ne 6 $
+\end{tcolorbox}
+
+\subsection{合取运算符（AND, Conjunction Operator）}
+
+命题$ p \wedge q $表示$ p $并且$ q $，当$ p $和$ q $都为真时命题为真，否则为假。
+
+\begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{5mm}{
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \textbf{$ p $} & \textbf{$ \neg p $} & \textbf{$ p \wedge q $} \\
+            \hline
+            T & T & T \\
+            \hline
+            T & F & F \\
+            \hline
+            F & T & F \\
+            \hline
+            F & F & F \\
+            \hline
+        \end{tabular}
+    }
+    \caption{AND真值表}
+\end{table}
+
+\begin{tcolorbox}
+    \mybox{Exercise}
+    $ p \wedge q $ \\
+    $ p $: 今天是星期五。 \\
+    $ q $: 今天会下雨。 \\
+    $ p \wedge q $: 今天是星期五并且会下雨。
+\end{tcolorbox}
+
+\subsection{析取运算符（OR, Disjunction Operator）}
+
+命题$ p \vee q $表示$ p $或$ q $，当$ p $和$ q $都为假时命题为假，否则为真。
+
+\begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{5mm}{
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \textbf{$ p $} & \textbf{$ \neg p $} & \textbf{$ p \vee q $} \\
+            \hline
+            T & T & T \\
+            \hline
+            T & F & T \\
+            \hline
+            F & T & T \\
+            \hline
+            F & F & F \\
+            \hline
+        \end{tabular}
+    }
+    \caption{OR真值表}
+\end{table}
+
+\begin{tcolorbox}
+    \mybox{Exercise}
+    $ p \vee q $ \\
+    $ p $: 开关坏了。 \\
+    $ q $: 灯泡坏了。 \\
+    $ p \vee q $: 开关坏了或者灯泡坏了。
+\end{tcolorbox}
+
+\subsection{异或运算符（XOR, Exclusive Or）}
+
+命题$ p \oplus q $表示$ p $和$ q $的异或，当$ p $和$ q $中恰有一个为真时命题为真，否则为假。
+
+\begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{5mm}{
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \textbf{$ p $} & \textbf{$ \neg p $} & \textbf{$ p \oplus q $} \\
+            \hline
+            T & T & F \\
+            \hline
+            T & F & T \\
+            \hline
+            F & T & T \\
+            \hline
+            F & F & F \\
+            \hline
+        \end{tabular}
+    }
+    \caption{XOR真值表}
+\end{table}
+
+\begin{tcolorbox}
+    \mybox{Exercise}
+    $ p \oplus q $ \\
+    $ p $: 他现在在上海。 \\
+    $ q $: 他现在在北京。 \\
+    $ p \vee q $: 他现在在上海或北京。
+\end{tcolorbox}
+
+\begin{tcolorbox}
+    \mybox{Exercise}
+    某地发生了一件谋杀案，警察通过排查确定杀人凶手必为4个嫌疑犯的一个，根据以下信息确定凶手。 \\
+    A说：不是我。 \\
+    B说：是C。 \\
+    C说：是D。 \\
+    D说：C在胡说。 \\
+    已知3个人说了真话，1个人说的是假话。
+\end{tcolorbox}
+
+\vspace{-0.5cm}
+\begin{lstlisting}[language=Python]
+def main():
+    for killer in ['A', 'B', 'C', 'D']:
+        if (killer != 'A') + (killer == 'C') \
+            + (killer == 'D') + (killer != 'D') == 3:
+            print(killer)
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\begin{tcolorbox}
+    \mybox{运行结果}
+    C
+\end{tcolorbox}
+
+\end{document}
