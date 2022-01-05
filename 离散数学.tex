@@ -59,8 +59,9 @@
 \definecolor{LightGray}{gray}{0.9}
 
 \lstset{
-    basicstyle=\normalsize \fontspec{Consolas},    %  the size of the fonts that are used for the code
-    numbers=left,            % where to put the line-numbers
+    basicstyle=\linespread{1.3} \fontspec{Consolas},    %  the size of the fonts that are used for the code
+	basewidth=0.5em,
+	numbers=left,            % where to put the line-numbers
     numberstyle=\color{black},  % the style that is used for the line-numbers
     numbersep=10pt,                  % how far the line-numbers are from the code
     backgroundcolor=\color{white},
@@ -227,9 +228,10 @@
 			\hline
 		\end{tabular}
 	}
+	\caption{命题与非命题}
 \end{table}
 
-命题习惯上用字母$ p $, $ q $, $ r $, $ s $等来表示，如果一个命题是真命题，它的真值为真，用T表示；如果一个命题是假命题，它的真值为假，用F表示。 \\
+命题习惯上用字母$ p $, $ q $, $ r $, $ s $等来表示，如果一个命题是真命题，它的真值为真，用T表示；如果一个命题是假命题，它的真值为假，用F表示。
 
 \subsection{非运算符（NOT, Negation Operator）}
 
@@ -2174,7 +2176,7 @@ int fibonacci(int n) {
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[
-			level distance=2cm,
+			level distance=2.5cm,
 			level 1/.style={sibling distance=6cm},
 			level 2/.style={sibling distance=3cm},
 			level 3/.style={sibling distance=2cm}
