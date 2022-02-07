@@ -85,7 +85,7 @@
 
 \begin{document}
 
-\pagestyle{plain}
+\thispagestyle{empty}
 
 \begin{tikzpicture}[overlay,remember picture]
 	% Background color
@@ -192,9 +192,10 @@
 
 \newpage
 
+\pagestyle{plain}
+\setcounter{page}{1}
 \setcounter{tocdepth}{1}
 \tableofcontents
-\thispagestyle{empty}
 
 \newpage
 
@@ -274,13 +275,13 @@
 			\hline
 			\textbf{$ p $} & \textbf{$ q $} & \textbf{$ p \wedge q $} \\
 			\hline
-			T              & T                   & T                       \\
+			T              & T              & T                       \\
 			\hline
-			T              & F                   & F                       \\
+			T              & F              & F                       \\
 			\hline
-			F              & T                   & F                       \\
+			F              & T              & F                       \\
 			\hline
-			F              & F                   & F                       \\
+			F              & F              & F                       \\
 			\hline
 		\end{tabular}
 	}
@@ -306,13 +307,13 @@
 			\hline
 			\textbf{$ p $} & \textbf{$ q $} & \textbf{$ p \vee q $} \\
 			\hline
-			T              & T                   & T                     \\
+			T              & T              & T                     \\
 			\hline
-			T              & F                   & T                     \\
+			T              & F              & T                     \\
 			\hline
-			F              & T                   & T                     \\
+			F              & T              & T                     \\
 			\hline
-			F              & F                   & F                     \\
+			F              & F              & F                     \\
 			\hline
 		\end{tabular}
 	}
@@ -338,13 +339,13 @@
 			\hline
 			\textbf{$ p $} & \textbf{$ q $} & \textbf{$ p \oplus q $} \\
 			\hline
-			T              & T                   & F                       \\
+			T              & T              & F                       \\
 			\hline
-			T              & F                   & T                       \\
+			T              & F              & T                       \\
 			\hline
-			F              & T                   & T                       \\
+			F              & T              & T                       \\
 			\hline
-			F              & F                   & F                       \\
+			F              & F              & F                       \\
 			\hline
 		\end{tabular}
 	}
