@@ -616,10 +616,10 @@ if __name__ == "__main__":
 	\end{align}
 \end{tcolorbox}
 
-\begin{tcolorbox}\nonumber
+\begin{tcolorbox}
 	\mybox{Exercise}
 	证明$ (p \vee q) \rightarrow p $永真
-	\begin{align}
+	\begin{align*}
 		 & (p \vee q) \rightarrow p           \\
 		 & \equiv \neg (p \wedge q) \vee p    \\
 		 & \equiv (\neg p \vee \neg q) \vee p \\
@@ -627,7 +627,7 @@ if __name__ == "__main__":
 		 & \equiv \neg q \vee (\neg p \vee p) \\
 		 & \equiv \neg q \vee T               \\
 		 & \equiv T
-	\end{align}
+	\end{align*}
 \end{tcolorbox}
 
 \newpage
@@ -761,27 +761,27 @@ $$
 \begin{enumerate}
 	\item 直接证明法（direct proof）
 
-	      \begin{tcolorbox}\nonumber
+	      \begin{tcolorbox}
 		      \mybox{证明}
 		      如果$ n $是奇数，那么$ n^2 $也是奇数，$ n \in \mathbb{Z} $。
-		      \begin{align}
+		      \begin{align*}
 			      n^2 & = (2k + 1)^2       \\
 			          & = 4k^2 + 4k + 1    \\
 			          & = 2(2k^2 + 2k) + 1
-		      \end{align}
+		      \end{align*}
 	      \end{tcolorbox}
 
 	\item 反证法（proof by contrapositive）：由于$ p \rightarrow q \equiv \neg q \rightarrow \neg p $，因此可以通过证明原命题的逆否命题来反证原命题。
 
-	      \begin{tcolorbox}\nonumber
+	      \begin{tcolorbox}
 		      \mybox{证明}
 		      如果$ xy $是偶数，那么$ x $是偶数或$ y $是偶数，$ x, y \in \mathbb{Z} $。\\
 		      逆否命题：如果$ x $是奇数并且$ y $是奇数，那么$ xy $是奇数，$ x, y \in \mathbb{Z} $。
-		      \begin{align}
+		      \begin{align*}
 			      xy & = (2m + 1)(2n + 1)   \\
 			         & = 4mn + 2m +2n + 1   \\
 			         & = 2(2mn + m + n) + 1
-		      \end{align}
+		      \end{align*}
 	      \end{tcolorbox}
 \end{enumerate}
 
@@ -1367,16 +1367,16 @@ $$
 	\end{align}
 \end{tcolorbox}
 
-\begin{tcolorbox}\nonumber
+\begin{tcolorbox}
 	\mybox{证明}
 	$ \overline{A \cup (B \cap C)} = (\overline C \cup \overline B) \cap \overline A $
-	\begin{align}
+	\begin{align*}
 		 & \overline{A \cup (B \cap C)}                      \\
 		 & = \overline A \cap \overline{B \cap C}            \\
 		 & = \overline A \cap (\overline B \cup \overline C) \\
 		 & = (\overline B \cup \overline C) \cap \overline A \\
 		 & = (\overline C \cup \overline B) \cap \overline A
-	\end{align}
+	\end{align*}
 \end{tcolorbox}
 
 \begin{tcolorbox}
@@ -1451,16 +1451,16 @@ $$
 	笛卡尔积$ S \times C $表示学生选课的所有可能情况\\
 \end{tcolorbox}
 
-\begin{tcolorbox}\nonumber
+\begin{tcolorbox}
 	\mybox{Exercise}
 	笛卡尔积$ A \times B \times C $\\
 	$ A = \{0,\ 1\} $\\
 	$ B = \{1,\ 2\} $\\
 	$ C = \{0,\ 1,\ 2\} $
-	\begin{align}
+	\begin{align*}
 		A \times B \times C = \{(0, 1, 0), (0, 1, 1), (0, 1, 2), (0, 2, 0), (0, 2, 1), (0, 2, 2), \\
 		(1, 1, 0), (1, 1, 1), (1, 1, 2), (1, 2, 0), (1, 2, 1), (1, 2, 2)\}
-	\end{align}
+	\end{align*}
 \end{tcolorbox}
 
 一个集合与自身的笛卡尔积，如$ A \times A $可表示为$ A^2 $。
@@ -1888,13 +1888,13 @@ $$
 
 日常生活中都用十进制（decimal）来表示整数，十进制数由$ 0,\ 1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9 $这10个字符组成。一个十进制整数的第$ k $位的值可以由$ 10^{k-1} $计算得到。
 
-\begin{tcolorbox}\nonumber
+\begin{tcolorbox}
 	\mybox{Exercise}
 	十进制
-	\begin{align}
+	\begin{align*}
 		256 & = 200 + 50 + 6                                  \\
 		    & = 2 \times 10^2 + 5 \times 10^1 + 6 \times 10^0
-	\end{align}
+	\end{align*}
 \end{tcolorbox}
 
 二进制（binary）、八进制（octal）、十六进制（hexadecimal）也是非常常用的表示法，例如计算机通常用二进制来做算术运算，而用八进制或十六进制来表示字符。\\
@@ -2157,28 +2157,24 @@ $$
 
 \vspace{-1.5cm}
 
-\begin{align}
-	\nonumber
+\begin{align*}
 	a_0 & = a           \\
-	\nonumber
 	a_n & = a_{n-1} + d
-\end{align}
+\end{align*}
 
 几何级数的递推关系：
 
 \vspace{-1.5cm}
 
-\begin{align}
-	\nonumber
+\begin{align*}
 	a_0 & = a                \\
-	\nonumber
 	a_n & = a_{n-1} \times r
-\end{align}
+\end{align*}
 
-\begin{tcolorbox}\nonumber
+\begin{tcolorbox}
 	\mybox{Exercise}
 	银行储蓄账户上有10000元，年利率为5.8\%，7年后账户中将有多少钱？
-	\begin{align}
+	\begin{align*}
 		P_n & = P_{n-1} + 0.058P_{n-1}                      \\
 		    & = (1.058)P_{n-1}                              \\
 		\\
@@ -2187,7 +2183,7 @@ $$
 		P_2 & = (1.058)P_1 = (1.058)^2 P_0                  \\
 		\dots                                               \\
 		P_7 & = (1.058)P_6 = (1.058)^7 P_0 \approx 14838.83
-	\end{align}
+	\end{align*}
 \end{tcolorbox}
 
 \vspace{0.5cm}
@@ -2196,13 +2192,13 @@ $$
 
 斐波那契数列$ f_0,\ f_1,\ f_2,\ \dots $的递推公式为：
 
-\begin{align}\nonumber
+\begin{align*}
 	f(n) = \begin{cases}
 		1               & n = 1 \\
 		1               & n = 2 \\
 		f(n-1) + f(n-2) & n > 3
 	\end{cases}
-\end{align}
+\end{align*}
 
 斐波那契数列的通项公式为：
 
@@ -2297,16 +2293,16 @@ $$
 
 计算双重求和的方法是先展开内层求和，再继续计算外层求和。
 
-\begin{tcolorbox}\nonumber
+\begin{tcolorbox}
 	\mybox{Exercise}
 	双重求和
-	\begin{align}
+	\begin{align*}
 		 & \sum_{i=1}^{4} \sum_{j=1}^{3} ij \\
 		 & = \sum_{i=1}^{4} (i + 2i + 3i)   \\
 		 & = \sum_{i=1}^{4} 6i              \\
 		 & = 6 + 12 + 1 8 + 24              \\
 		 & = 60
-	\end{align}
+	\end{align*}
 \end{tcolorbox}
 
 \newpage
@@ -2325,7 +2321,7 @@ $$
 	\item 归纳递推
 \end{enumerate}
 
-\begin{tcolorbox}\nonumber
+\begin{tcolorbox}
 	\mybox{证明}
 	$ \sum_{i=1}^{n} i = {n(n+1) \over 2},\ n \in \mathbb{Z^+} $
 	\begin{enumerate}
@@ -2336,41 +2332,62 @@ $$
 		      $ \sum_{i=1}^{k} i = {k(k+1) \over 2} $成立
 
 		\item 归纳递推：证明$ n = k + 1 $时，
-		      \begin{align}
+		      \begin{align*}
 			      \sum_{i=1}^{k+1} i & = \sum_{i=1}^{k} i + k + 1  \\
 			                         & = {k(k+1) \over 2} + k + 1  \\
 			                         & = {k(k+1) + 2(k+1) \over 2} \\
 			                         & = {(k+1)(k+2) \over 2}
-		      \end{align}
+		      \end{align*}
 	\end{enumerate}
 \end{tcolorbox}
 
-\begin{tcolorbox}\nonumber
+\begin{tcolorbox}
 	\mybox{证明}
 	$ 2^n \ge 3n,\ n \ge 4 $
 	\begin{enumerate}
 		\item 归纳基础：当$ n = 4 $，\\
 		      $ 2^4 \ge 3 \times 4 $
 
-		\item 归纳假设：假设$ n = k (n > 4) $，\\
+		\item 归纳假设：假设$ n = k\ (n > 4) $，\\
 		      $ 2^k \ge 3k $成立
 
 		\item 归纳递推：证明$ n = k + 1 $时，
-		      \begin{align}
+		      \begin{align*}
 			      2^{k+1} & = 2 \times 2^k  \\
 			              & \ge 2 \times 3k \\
 			              & = 3k + 3k       \\
 			              & \ge 3k + 3      \\
 			              & \ge 3(k+1)
-		      \end{align}
+		      \end{align*}
+	\end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{证明}
+	对于任意正整数n，3都能够整除$ 2^{2n} - 1 $
+	\begin{enumerate}
+		\item 归纳基础：当$ n = 1 $，\\
+		      $ 2^{2 \times 1} -1 = 3 $
+
+		\item 归纳假设：假设$ n = k\ (n > 0) $，\\
+		      3能够整除$ 2^{2k} - 1 $成立，即$ 2^{2k} - 1 = 3m $
+
+		\item 归纳递推：证明$ n = k + 1 $时，
+		      \begin{align*}
+			      2^{2(k+1)} - 1 & = 2^{2k+2} - 1          \\
+			                     & = 4 \times 2^{2k} - 1   \\
+			                     & = 4 \times (3m + 1) - 1 \\
+			                     & = 4 \times 3m + 4 - 1   \\
+			                     & =3 \times (4m + 1)
+		      \end{align*}
 	\end{enumerate}
 \end{tcolorbox}
 
 \newpage
 
-\chapter{计数原理}
+\chapter{计数}
 
-\section{计数原理}
+\section{计数}
 
 \subsection{分类加法计数原理}
 
@@ -2537,6 +2554,134 @@ int main() {
 \end{tcolorbox}
 
 \newpage
+
+\section{鸽巢原理}
+
+\subsection{鸽巢原理（Pigeonhole Principle）}
+
+鸽巢原理也称为狄利克雷抽屉原理（Dirichlet Drawer Principle），假设有20只鸽子要飞往19个鸽巢栖息，因此这19个鸽巢中至少有1个鸽巢最少栖息着2只鸽子。
+
+\begin{tcolorbox}
+	\mybox{鸽巢原理}\\
+	如果k + 1个或者更多的物体放入k个盒子，那么至少有一个盒子包含了2个或更多的物体。
+\end{tcolorbox}
+
+在生活中有很多场景都可以用鸽巢原理来解释：
+
+\begin{itemize}
+	\item 367个人中一定至少有2个人生日相同。
+	\item 27个英文单词中一定至少有2个单词是以同一个字母开头。
+\end{itemize}
+
+鸽巢原理指出当物体比盒子多时一定至少有2个物体在同一个盒子里，但是当物体树量超过盒子数量的倍数时，可以得到更多的结论。例如在21个在0 $ \sim $ 9数字中一定有3个是相同的，这是由于21个物体被分配到10个盒子里，那么某个盒子的物体一定多于2个。
+
+\begin{tcolorbox}
+	\mybox{广义鸽巢原理}\\
+	如果N个物体放入k个盒子，那么至少有一个盒子包含了至少$ \lceil N / k \rceil $个物体。
+\end{tcolorbox}
+
+在生活中有很多场景都可以用广义鸽巢原理来解释：
+
+\begin{itemize}
+	\item 在100个人中至少有$ \lceil 100 / 12 \rceil = 9 $个人出生在同一个月。
+	\item 假设有A、B、C、D、E五个成绩，一个班级至少要有26个学生才能保证至少6个学生得到相同的分数。
+\end{itemize}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	(1) 从一副标准的52张牌中必须选多少张牌才能保证选出的牌中至少有3张是同样的花色？\\
+	假设用4个盒子存放4种花色的牌，选N张牌后，至少有一个盒子含有至少$ \lceil N / 4 \rceil $张牌。\\
+	因此使得$ \lceil N / 4 \rceil \ge 3 $的最小整数$ N = 2 \times 4 + 1 = 9 $\\
+
+	(2) 必须选多少张牌才能保证选出的牌中至少有3张是红桃。\\
+	这个场景不适用广义鸽巢原理，因为要保证存在3张红桃，而不是3张同花色的牌。\\
+	最坏情况下，在选出第一张红桃之前已经选了所有的其它花色牌共39张，因此为了得到3张红桃，可能需要选42张牌。
+\end{tcolorbox}
+
+\newpage
+
+\section{二项式系数}
+
+\subsection{二项式系数（Binomial Coefficient）}
+
+组合数$ C(n, r) $也可写为$ n \choose r $，由于这些数经常出现在$ (x + y)^n $的展开式中作为系数，所以这些数被称为二项式系数。
+
+\vspace{-1cm}
+
+\begin{align*}
+	(x + y)^3 & = 1x^3 + 3x^2y + 3xy^2 + 1y^3                                                     \\
+	          & = {3 \choose 0} x^3 + {3 \choose 1} x^2y + {3 \choose 2} xy^2 + {3 \choose 3} y^3
+\end{align*}
+
+\begin{tcolorbox}
+	\mybox{二项式定理}
+	\begin{align}
+		(x + y)^n & = \sum_{j=0}^{n} {n \choose j}x^{n-j}y^j                                                            \\
+		\nonumber
+		          & = {n \choose 0} x^n + {n \choose 1} x^{n-1}y + \dots + {n \choose n-1} xy^{n-1} + {n \choose n} y^n
+	\end{align}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	计算$ (x + y)^{25} $的展开式中$ x^{12}y^{13} $的系数。\\
+	$$
+		{25 \choose 13} = 5200300
+	$$
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	计算$ (2x - 3y)^{25} $的展开式中$ x^{12}y^{13} $的系数。
+	\begin{align*}
+		(2x + (-3y))^{25} & = \sum_{j=0}^{25} {25 \choose j} (2x)^{25-j} (-3y)^j                \\
+		                  & = \sum_{j=0}^{25} {25 \choose j} (2)^{25-j} (x)^{25-j} (-3)^j (y)^j
+	\end{align*}
+	$ x^{12}y^{13} $的系数为$ {25 \choose 13} \cdot 2^{12} \cdot (-3)^{13} $
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{推论1}
+	\begin{align}
+		\sum_{j=0}^{n} {n \choose j} = 2^n
+	\end{align}
+	\mybox{证明}
+	\begin{align*}
+		2^n & = (1 + 1)^n                                \\
+		    & = \sum_{j=0}^{n} {n \choose j} 1^{n-j} 1^j \\
+		    & = \sum_{j=0}^{n} {n \choose j}
+	\end{align*}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{推论2}
+	\begin{align}
+		\sum_{j=0}^{n} {n \choose j} (-1)^j = 0
+	\end{align}
+	\mybox{证明}
+	\begin{align*}
+		0 & = (1 - 1)^n                                   \\
+		  & = \sum_{j=0}^{n} {n \choose j} 1^{n-j} (-1)^j \\
+		  & = \sum_{j=0}^{n} {n \choose j} (-1)^j
+	\end{align*}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{推论3}
+	\begin{align}
+		\sum_{j=0}^{n} {n \choose j} (2)^j = 3^n
+	\end{align}
+	\mybox{证明}
+	\begin{align*}
+		3^n & = (1 + 2)^n                                \\
+		    & = \sum_{j=0}^{n} {n \choose j} 1^{n-j} 2^j \\
+		    & = \sum_{j=0}^{n} {n \choose j} (2)^j
+	\end{align*}
+\end{tcolorbox}
+
+\newpage
+
+\chapter{概率}
 
 \section{古典概型}
 
