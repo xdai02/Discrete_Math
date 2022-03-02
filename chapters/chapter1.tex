@@ -1,0 +1,925 @@
+\chapter{逻辑}
+
+\section{命题}
+
+\subsection{命题（Proposition）}
+
+逻辑（logic）规则给出数学语句的准确含义，这些规则用来区分有效和无效的数学论证。逻辑不仅对理解数学推理十分重要，而且在计算机科学中有许多应用，逻辑可用于电路设计、程序构造、程序正确性证明等方面。\\
+
+命题是逻辑的基本成分，一个命题是一个具有真值（truth value）的语句，命题可以为真也可以为假，但不能既为真又为假。
+
+\begin{table}[H]
+	\centering
+	\setlength{\tabcolsep}{5mm}{
+		\begin{tabular}{|c|c|}
+			\hline
+			\textbf{命题}        & \textbf{非命题}    \\
+			\hline
+			I have a dog.        & What day is today? \\
+			\hline
+			1 + 2 = 3            & Shut the door!     \\
+			\hline
+			Today is Wednesday.  & 1 + 2              \\
+			\hline
+			It is snowing today. & x + 1 = 2          \\
+			\hline
+		\end{tabular}
+	}
+	\caption{命题与非命题}
+\end{table}
+
+命题习惯上用字母$ p $, $ q $, $ r $, $ s $等来表示，如果一个命题是真命题，它的真值为真，用T表示；如果一个命题是假命题，它的真值为假，用F表示。\\
+
+\subsection{非运算符（NOT, Negation Operator）}
+
+非运算符$ \neg $只作用于一个命题，其作用是反转命题的真值。\\
+
+真值表（truth table）可以给出命题真值之间的关系，在确定由简单命题组成的命题的真值时，真值表特别有用。
+
+\begin{table}[H]
+	\centering
+	\setlength{\tabcolsep}{5mm}{
+		\begin{tabular}{|c|c|}
+			\hline
+			\textbf{$ p $} & \textbf{$ \neg p $} \\
+			\hline
+			T              & F                   \\
+			\hline
+			F              & T                   \\
+			\hline
+		\end{tabular}
+	}
+	\caption{NOT真值表}
+\end{table}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	$ \neg p $\\
+	$ p $: It snowed last night.\\
+	$ \neg p $: It didn;t snow last night.\\
+	$ q $: $ 2 + 3 = 6 $\\
+	$ \neg q $: $ 2 + 3 \ne 6 $
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+\subsection{合取运算符（AND, Conjunction Operator）}
+
+命题$ p \wedge q $表示$ p $并且$ q $，当$ p $和$ q $都为真时命题为真，否则为假。
+
+\begin{table}[H]
+	\centering
+	\setlength{\tabcolsep}{5mm}{
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{$ p $} & \textbf{$ q $} & \textbf{$ p \wedge q $} \\
+			\hline
+			T              & T              & T                       \\
+			\hline
+			T              & F              & F                       \\
+			\hline
+			F              & T              & F                       \\
+			\hline
+			F              & F              & F                       \\
+			\hline
+		\end{tabular}
+	}
+	\caption{AND真值表}
+\end{table}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	$ p \wedge q $\\
+	$ p $: 今天是星期五。\\
+	$ q $: 今天会下雨。\\
+	$ p \wedge q $: 今天是星期五并且会下雨。
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+\subsection{析取运算符（OR, Disjunction Operator）}
+
+命题$ p \vee q $表示$ p $或$ q $，当$ p $和$ q $都为假时命题为假，否则为真。
+
+\begin{table}[H]
+	\centering
+	\setlength{\tabcolsep}{5mm}{
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{$ p $} & \textbf{$ q $} & \textbf{$ p \vee q $} \\
+			\hline
+			T              & T              & T                     \\
+			\hline
+			T              & F              & T                     \\
+			\hline
+			F              & T              & T                     \\
+			\hline
+			F              & F              & F                     \\
+			\hline
+		\end{tabular}
+	}
+	\caption{OR真值表}
+\end{table}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	$ p \vee q $\\
+	$ p $: 开关坏了。\\
+	$ q $: 灯泡坏了。\\
+	$ p \vee q $: 开关坏了或者灯泡坏了。
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+\subsection{异或运算符（XOR, Exclusive Or）}
+
+命题$ p \oplus q $表示$ p $和$ q $的异或，当$ p $和$ q $中恰有一个为真时命题为真，否则为假。
+
+\begin{table}[H]
+	\centering
+	\setlength{\tabcolsep}{5mm}{
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{$ p $} & \textbf{$ q $} & \textbf{$ p \oplus q $} \\
+			\hline
+			T              & T              & F                       \\
+			\hline
+			T              & F              & T                       \\
+			\hline
+			F              & T              & T                       \\
+			\hline
+			F              & F              & F                       \\
+			\hline
+		\end{tabular}
+	}
+	\caption{XOR真值表}
+\end{table}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	$ p \oplus q $\\
+	$ p $: 他现在在上海。\\
+	$ q $: 他现在在北京。\\
+	$ p \vee q $: 他现在在上海或北京。
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	某地发生了一件谋杀案，警察通过排查确定杀人凶手必为4个嫌疑犯的一个，根据以下信息确定凶手。\\
+	A说：不是我。\\
+	B说：是C。\\
+	C说：是D。\\
+	D说：C在胡说。\\
+	已知3个人说了真话，1个人说的是假话。
+\end{tcolorbox}
+
+\begin{lstlisting}[language=Python]
+def main():
+    for killer in ['A', 'B', 'C', 'D']:
+        if (killer != 'A') + (killer == 'C') \
+            + (killer == 'D') + (killer != 'D') == 3:
+            print(killer)
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\begin{tcolorbox}
+	\mybox{运行结果}
+	C
+\end{tcolorbox}
+
+\newpage
+
+\section{复合命题}
+
+\subsection{复合命题（Compound Proposition）}
+
+使用非运算符和已定义的各联结词可以构造复合命题。小括号用于规定复合命题中多个逻辑运算符的操作顺序，为了减少所需的小括号数量，规定了各联结词的优先级。
+
+\begin{table}[H]
+	\centering
+	\setlength{\tabcolsep}{5mm}{
+		\begin{tabular}{|c|c|}
+			\hline
+			\textbf{优先级} & \textbf{运算符}                   \\
+			\hline
+			1               & $ \neg $                          \\
+			\hline
+			2               & $ \wedge $ / $ \vee $             \\
+			\hline
+			3               & $ \rightarrow / \leftrightarrow $ \\
+			\hline
+		\end{tabular}
+	}
+	\caption{运算符优先级}
+\end{table}
+
+\vspace{0.5cm}
+
+\subsection{蕴含运算符（Implication Operator）}
+
+命题$ p \rightarrow q $表示$ p $蕴含$ q $，在$ p $为真而$ q $为假时命题为假，否则为真。其中$ p $称为前提，$ q $称为结论。
+
+\begin{table}[H]
+	\centering
+	\setlength{\tabcolsep}{5mm}{
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{$ p $} & \textbf{$ q $} & \textbf{$ p \rightarrow q $} \\
+			\hline
+			T              & T              & T                            \\
+			\hline
+			T              & F              & F                            \\
+			\hline
+			F              & T              & T                            \\
+			\hline
+			F              & F              & T                            \\
+			\hline
+		\end{tabular}
+	}
+	\caption{蕴含真值表}
+\end{table}
+
+表示$ p \rightarrow q $的术语有很多种，常见的有：
+
+\begin{itemize}
+	\item If $ p $, then $ q $.
+	\item $ p $ only if $ q $.
+	\item $ q $ is necessary for $ p $.
+\end{itemize}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	$ p \rightarrow q $\\
+	$ p $：我去看电影。\\
+	$ q $：我买奶茶。\\
+	$ p \rightarrow q $：如果我去看电影，那么我会买奶茶。
+\end{tcolorbox}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{img/C1/1-2/1.png}
+\end{figure}
+
+由$ p \rightarrow q $可以构造出几个相关的蕴含：
+
+\begin{enumerate}
+	\item $ q \rightarrow p $称为$ p \rightarrow q $的逆命题（converse）。
+	\item $ \neg q \rightarrow \neg p $称为$ p \rightarrow q $的逆否命题（contrapositive）。
+\end{enumerate}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	逆命题与逆否命题\\
+	$ p $：今天是星期四。\\
+	$ q $：我今天有考试。\\
+	$ p \rightarrow q $：如果今天是星期四，那么我今天有考试。\\
+	$ q \rightarrow p $：如果我今天有考试，那么果今天是星期四。\\
+	$ \neg q \rightarrow \neg p $：如果我今天没有考试，那么今天不是星期四。
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+\subsection{双向蕴含（Biconditional Operation）}
+
+命题$ p \leftrightarrow q $表示$ p $双向蕴含$ q $，在$ p $和$ q $有相同的真值时命题为真，否则为假。
+
+\begin{table}[H]
+	\centering
+	\setlength{\tabcolsep}{5mm}{
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{$ p $} & \textbf{$ q $} & \textbf{$ p \leftrightarrow q $} \\
+			\hline
+			T              & T              & T                                \\
+			\hline
+			T              & F              & F                                \\
+			\hline
+			F              & T              & F                                \\
+			\hline
+			F              & F              & T                                \\
+			\hline
+		\end{tabular}
+	}
+	\caption{双向蕴含真值表}
+\end{table}
+
+双蕴含的真值表与异或的真值表正好相反，因此$ p \leftrightarrow q $与$ \neg (p \oplus q) $等价。
+
+\newpage
+
+\section{逻辑等价}
+
+\subsection{逻辑等价（Logical Equivalence）}
+
+两个不同的复合命题可能拥有完全相同的真值，则称这两个命题在逻辑上是等价的。如果无论复合命题中各个命题的真值是什么，复合命题的真值总是为真，这样的复合命题称为永真式（tautology）。如果真值永远为假的复合命题称为矛盾（contradiction）。
+
+\begin{table}[H]
+	\centering
+	\setlength{\tabcolsep}{5mm}{
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textbf{$ p $} & \textbf{$ \neg p $} & \textbf{$ p \vee \neg p $} & \textbf{$ p \wedge \neg p $} \\
+			\hline
+			T              & F                   & T                          & F                            \\
+			\hline
+			F              & T                   & T                          & F                            \\
+			\hline
+		\end{tabular}
+	}
+	\caption{逻辑等价}
+\end{table}
+
+如果复合命题$ s $和是$ r $逻辑等价的，可表示为$ s \equiv r $。只有当$ s \leftrightarrow r $是永真式时，$ s $和$ r $才是逻辑等价的。
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	使用真值表证明$ p \vee q \equiv \neg (\neg p \wedge \neg q) $
+	\begin{table}[H]
+		\centering
+		\setlength{\tabcolsep}{5mm}{
+			\begin{tabular}{|c|c|c|c|c|c|c|}
+				\hline
+				\textbf{$ p $} & \textbf{$ q $} & \textbf{$ p \vee q $} & \textbf{$ \neg p $} & \textbf{$ \neg q $} & \textbf{$ \neg p \wedge \neg q $} & \textbf{$ \neg (\neg p \wedge \neg q) $} \\
+				\hline
+				T              & T              & T                     & F                   & F                   & F                                 & T                                        \\
+				\hline
+				T              & F              & T                     & F                   & T                   & F                                 & T                                        \\
+				\hline
+				F              & T              & T                     & T                   & F                   & F                                 & T                                        \\
+				\hline
+				F              & F              & F                     & T                   & T                   & T                                 & F                                        \\
+				\hline
+			\end{tabular}
+		}
+	\end{table}
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+\subsection{逻辑等价定理}
+
+\begin{tcolorbox}
+	\mybox{幂等律 Idempotent Laws}
+	\begin{align}
+		p \wedge p & \equiv p \\
+		p \vee p   & \equiv p
+	\end{align}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{恒等律 Identity Laws}
+	\begin{align}
+		p \wedge T & \equiv p \\
+		p \vee F   & \equiv p
+	\end{align}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{支配律 Domination Laws}
+	\begin{align}
+		p \vee T   & \equiv T \\
+		p \wedge F & \equiv F
+	\end{align}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{双非律 Double Negation Law}
+	\begin{align}
+		\neg (\neg p) & \equiv p
+	\end{align}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{交换律 Commutative Laws}
+	\begin{align}
+		p \wedge q & \equiv q \wedge p \\
+		p \vee q   & \equiv q \vee p
+	\end{align}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{结合律 Associative Laws}
+	\begin{align}
+		(p \wedge q) \wedge r & \equiv p \wedge (q \wedge r) \\
+		(p \vee q) \vee r     & \equiv p \vee (q \vee r)
+	\end{align}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{分配律 Distributive Laws}
+	\begin{align}
+		(p \wedge q) \wedge r & \equiv p \wedge (q \wedge r) \\
+		(p \vee q) \vee r     & \equiv p \vee (q \vee r)
+	\end{align}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{德摩根律 De Morgan's Laws}
+	\begin{align}
+		\neg (p \wedge q) & \equiv \neg p \vee \neg q   \\
+		\neg (p \vee q)   & \equiv \neg p \wedge \neg q
+	\end{align}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{吸收律 Absorption Laws}
+	\begin{align}
+		p \wedge (p \vee q) & \equiv p \\
+		p \vee (p \wedge q) & \equiv p
+	\end{align}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{条件恒等}
+	\begin{align}
+		p \rightarrow q     & \equiv \neg p \vee q                              \\
+		p \leftrightarrow q & \equiv (p \rightarrow q) \wedge (q \rightarrow p)
+	\end{align}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	证明$ (p \vee q) \rightarrow p $永真
+	\begin{align*}
+		 & (p \vee q) \rightarrow p           \\
+		 & \equiv \neg (p \wedge q) \vee p    \\
+		 & \equiv (\neg p \vee \neg q) \vee p \\
+		 & \equiv (\neg q \vee \neg p) \vee p \\
+		 & \equiv \neg q \vee (\neg p \vee p) \\
+		 & \equiv \neg q \vee T               \\
+		 & \equiv T
+	\end{align*}
+\end{tcolorbox}
+
+\newpage
+
+\section{谓词与量词}
+
+\subsection{谓词（Predicate）}
+
+命题逻辑并不能表达数学语言和自然语言中所有语句的确切含义。在数学表达式和计算机程序中经常可以看到含有变量的语句，例如$ x > 3 $、$ x = y + 3 $、程序$ x $正在运行等。当变量值未指定时，这些语句既不为真也不为假。\\
+
+利用$ P(x) $可以表示语句，其中$ x $是变量，语句$ P(x) $可以说是命题函数$ P $在$ x $的值。一旦给变量$ x $赋一个值，语句$ P(x) $就称为命题并具有真值。\\
+
+通常使用大写字母$ P $, $ Q $, $ R $等表示谓词，小写字母$ x $, $ y $, $ z $等表示变量。
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	谓词
+	\begin{table}[H]
+		\centering
+		\setlength{\tabcolsep}{5mm}{
+			\begin{tabular}{|l|l|}
+				\hline
+				\textbf{谓词}          & \textbf{真值}      \\
+				\hline
+				$ P(x): x + 3 = 6 $    & $ P(3) $为True     \\
+				\hline
+				$ Q(x, y): x = y + 2 $ & $ Q(4, 1) $为False \\
+				\hline
+			\end{tabular}
+		}
+	\end{table}
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+\subsection{量词（Quantifier）}
+
+量词用量化表示在何种程度上谓词对于一定范围的个体成立。量词有全称量词（universal quantifier）和存在量词（existential quantifer）。\\
+
+全称量词$ \forall $表示all。$ \forall_x P(x) $是一个命题，当范围内所有的$ x $都能使语句$ P(x) $为真时，命题为真。
+
+\vspace{-0.5cm}
+
+$$
+	\forall_x P(x) = P(a_1) \wedge P(a_2) \wedge \dots \wedge P(a_k)
+$$
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	全称量词\\
+	假设$ x $表示全班所有学生，$ P(x) $表示$ x $完成了作业。\\
+	$ \forall_x P(x) $：全班所有学生都完成了作业。
+\end{tcolorbox}
+
+存在量词$ \exists $表示exists。$ \exists_x P(x) $是一个命题，当范围内存在至少一个$ x $能够语句$ P(x) $为真时，命题为真。
+
+\vspace{-0.5cm}
+
+$$
+	\exists_x P(x) = P(a_1) \vee P(a_2) \vee \dots \vee P(a_k)
+$$
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	存在量词\\
+	假设$ x $表示全班所有学生，$ P(x) $表示$ x $完成了作业。\\
+	$ \exists_x P(x) $：班里存在有一个学生完成了作业。
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	嵌套量词\\
+	假设$ x $表示某个人，$ P(x) $表示有父母。\\
+	$ \forall_x P(x) $：所有人都有父母。\\
+	$ \exists_x \neg P(x) $：存在至少有一个人没有父母。\\
+	$ \exists_x \exists_y (P(x) \wedge P(y)) $：至少存在一个人$ x $和一个人$ y $有父母。
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	$ P(x) $：$ x $是偶数，$ Q(x) $：$ x $能被3整除，$ x \in \mathbb{Z}^+ $
+	\begin{table}[H]
+		\centering
+		\setlength{\tabcolsep}{5mm}{
+			\begin{tabular}{|l|l|}
+				\hline
+				\textbf{语句}                              & \textbf{真值} \\
+				\hline
+				$ \exists_x (P(x) \wedge Q(x)) $           & True          \\
+				\hline
+				$ \forall_x (P(x) \rightarrow \neg Q(x)) $ & False         \\
+				\hline
+			\end{tabular}
+		}
+	\end{table}
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+\subsection{全称量词的否定}
+
+否定运算符可以使用在全称量词上。
+
+\vspace{-1cm}
+
+\begin{align}
+	\neg \forall_x P(x) & \equiv \exists_x \neg P(x) \\
+	\neg \exists_x P(x) & \equiv \forall_x \neg P(x)
+\end{align}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	全称量词的否定\\
+	$ P(x) $: $ x $ will pass the course ($ x $ is a student).\\
+	$ \neg \forall_x P(x) $: Not all students will pass the course.\\
+	$ \forall_x \neg P(x) $: No student will pass the course.\\
+	$ \neg \exists_x P(x) $: There does not exist a student that will pass the course.\\
+	$ \exists_x \neg P(x) $: There exists a student that will not pass the course.
+\end{tcolorbox}
+
+\newpage
+
+\section{证明}
+
+\subsection{证明（Proof）}
+
+证明方法非常重要，不仅因为它们可用于证明数学定理，而且在计算机科学中也有许多应用，包括验证程序正确性、建立安全的操作系统、人工智能领域做推论等。证明就是建立定理真实性的有效论证。\\
+
+证明定理有很多方法：
+
+\begin{enumerate}
+	\item 直接证明法（direct proof）
+
+	      \begin{tcolorbox}
+		      \mybox{证明}
+		      如果$ n $是奇数，那么$ n^2 $也是奇数，$ n \in \mathbb{Z} $。
+		      \begin{align*}
+			      n^2 & = (2k + 1)^2       \\
+			          & = 4k^2 + 4k + 1    \\
+			          & = 2(2k^2 + 2k) + 1
+		      \end{align*}
+	      \end{tcolorbox}
+
+	\item 反证法（proof by contrapositive）：由于$ p \rightarrow q \equiv \neg q \rightarrow \neg p $，因此可以通过证明原命题的逆否命题来反证原命题。
+
+	      \begin{tcolorbox}
+		      \mybox{证明}
+		      如果$ xy $是偶数，那么$ x $是偶数或$ y $是偶数，$ x, y \in \mathbb{Z} $。\\
+		      逆否命题：如果$ x $是奇数并且$ y $是奇数，那么$ xy $是奇数，$ x, y \in \mathbb{Z} $。
+		      \begin{align*}
+			      xy & = (2m + 1)(2n + 1)   \\
+			         & = 4mn + 2m +2n + 1   \\
+			         & = 2(2mn + m + n) + 1
+		      \end{align*}
+	      \end{tcolorbox}
+\end{enumerate}
+
+\newpage
+
+\section{布尔代数}
+
+\subsection{布尔代数（Boolean Algebra）}
+
+计算机和其它电子设备中的电路都有输入和输出，输入是0或1，输出也是0或1。电路可以用任何具有两个不同状态的基本元件来构造，例如开关和光学装置就是这样的原件，开关可位于开或关的位置，光学装置可能是点亮或未点亮。18世纪，乔治·布尔（George Boole）给出了逻辑的基本规则。\\
+
+电路的操作可以用布尔函数来定义，这样的布尔函数对任意一组输入都能指出其输出的值。\\
+
+布尔代数提供的是集合$ \{0, 1\} $上的运算和规则，布尔代数的规则类似于命题逻辑的规则。1相当于逻辑中的真，0相当于逻辑中的假。\\
+
+布尔代码运算主要有三种：
+
+\begin{enumerate}
+	\item 补（complement）
+	      \begin{table}[H]
+		      \centering
+		      \setlength{\tabcolsep}{5mm}{
+			      \begin{tabular}{|c|c|}
+				      \hline
+				      \textbf{$ x $} & \textbf{$ \overline{x} $} \\
+				      \hline
+				      1              & 0                         \\
+				      \hline
+				      0              & 1                         \\
+				      \hline
+			      \end{tabular}
+		      }
+	      \end{table}
+
+	\item 布尔积（boolean multiplication）
+	      \begin{table}[H]
+		      \centering
+		      \setlength{\tabcolsep}{5mm}{
+			      \begin{tabular}{|c|c|c|}
+				      \hline
+				      \textbf{$ x $} & \textbf{$ y $} & \textbf{$ x \cdot y $} \\
+				      \hline
+				      1              & 1              & 1                      \\
+				      \hline
+				      1              & 0              & 0                      \\
+				      \hline
+				      0              & 1              & 0                      \\
+				      \hline
+				      0              & 0              & 0                      \\
+				      \hline
+			      \end{tabular}
+		      }
+	      \end{table}
+
+	\item 布尔和（boolean addition）
+	      \begin{table}[H]
+		      \centering
+		      \setlength{\tabcolsep}{5mm}{
+			      \begin{tabular}{|c|c|c|}
+				      \hline
+				      \textbf{$ x $} & \textbf{$ y $} & \textbf{$ x + y $} \\
+				      \hline
+				      1              & 1              & 1                  \\
+				      \hline
+				      1              & 0              & 1                  \\
+				      \hline
+				      0              & 1              & 1                  \\
+				      \hline
+				      0              & 0              & 0                  \\
+				      \hline
+			      \end{tabular}
+		      }
+	      \end{table}
+\end{enumerate}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	当$ x = y = 1 $，$ w = z = 0 $时，\\
+	$ x \cdot y + (w + z) = 1 \cdot 1 + (0 + 0) = 1 + 0 = 1 $\\
+	$ x \cdot \overline y + z \cdot \overline{(w + z)} = 1 \cdot \overline 1 + 0 \cdot \overline{(0 + 0)} = 0 + 0 = 0 $\\
+	$ x \cdot \overline y + \overline{(\overline x + y + \overline{yz})} = 1 \cdot \overline 1 + \overline{(\overline 1 + 1 + \overline{1 \cdot 0})} = 0 + \overline 1 = 0 $
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+\subsection{布尔代数定理}
+
+\begin{tcolorbox}
+	\mybox{幂等律 Idempotent Laws}
+	\begin{align}
+		x \cdot x = 0 \\
+		x + x = x
+	\end{align}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{恒等律 Identity Laws}
+	\begin{align}
+		x \cdot 1 = x \\
+		x + 0 = x
+	\end{align}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{支配律 Domination Laws}
+	\begin{align}
+		x \cdot 0 = 0 \\
+		x + 1 = 1
+	\end{align}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{双非律 Double Negation Law}
+	\begin{align}
+		\overline {\overline x} = x
+	\end{align}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{交换律 Commutative Laws}
+	\begin{align}
+		x \cdot y = y \cdot x \\
+		x + y = y + x
+	\end{align}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{结合律 Associative Laws}
+	\begin{align}
+		(x \cdot y) \cdot z = x \cdot (y \cdot z) \\
+		(x + y) + z = x + (y + z)
+	\end{align}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{分配律 Distributive Laws}
+	\begin{align}
+		x \cdot (y + z) = x \cdot y + x \cdot z \\
+		x + (y \cdot z) = (x + y) \cdot (x + z)
+	\end{align}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{德摩根律 De Morgan's Laws}
+	\begin{align}
+		\overline{x \cdot y} = \overline x + \overline y \\
+		\overline{x + y} = \overline x \cdot \overline y
+	\end{align}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{吸收律 Absorption Laws}
+	\begin{align}
+		x \cdot (x + y) = x \\
+		x + (x \cdot y) = x
+	\end{align}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{证明}
+	$ xy + x \overline y = x $
+	\begin{align}
+		 & xy + x \overline y          \\
+		 & = x \cdot (y + \overline y) \\
+		 & = x \cdot 1                 \\
+		 & = x
+	\end{align}
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+\subsection{布尔函数（Boolean Function）}
+
+含有$ n $个变量的布尔函数能够构造出$ 2^n $行的输入输出表。
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	计算$ F(x, y, z) = xy + \overline z $
+	\begin{table}[H]
+		\centering
+		\setlength{\tabcolsep}{5mm}{
+			\begin{tabular}{|c|c|c|c|}
+				\hline
+				\textbf{$ x $} & \textbf{$ y $} & \textbf{$ z $} & \textbf{$ F(x, y, z) $} \\
+				\hline
+				0              & 0              & 0              & 1                       \\
+				\hline
+				0              & 0              & 1              & 0                       \\
+				\hline
+				0              & 1              & 0              & 1                       \\
+				\hline
+				0              & 1              & 1              & 0                       \\
+				\hline
+				1              & 0              & 0              & 1                       \\
+				\hline
+				1              & 0              & 1              & 0                       \\
+				\hline
+				1              & 1              & 0              & 1                       \\
+				\hline
+				1              & 1              & 1              & 1                       \\
+				\hline
+			\end{tabular}
+		}
+	\end{table}
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+\subsection{NAND与NOR}
+
+NAND运算符用$ \uparrow $表示Not And：
+
+\vspace{-0.5cm}
+
+$$
+	x \uparrow y = \overline{x \cdot y}
+$$
+
+NOR运算符用$ \downarrow $表示Not Or：
+
+\vspace{-0.5cm}
+
+$$
+	x \downarrow y = \overline{x + y}
+$$
+
+\newpage
+
+\section{逻辑门电路}
+
+\subsection{逻辑门电路（Logical Gate Circuit）}
+
+基础的逻辑门主要有三种：
+
+\begin{enumerate}
+	\item 与门（AND gate）
+	      \begin{figure}[H]
+		      \centering
+		      \begin{circuitikz} \draw
+			      (0,2) node[and port] (and) {}
+			      (and.in 1) node(x) [anchor=east,xshift=-0.5cm] {$ x $}
+			      (and.in 2) node(y) [anchor=east,xshift=-0.5cm] {$ y $}
+			      (and.out) node(output) [anchor=west,xshift=0.5cm] {$ x \cdot y $}
+			      (x) -- (and.in 1)
+			      (y) -- (and.in 2)
+			      (and.out) -- (output);
+		      \end{circuitikz}
+	      \end{figure}
+
+	\item 或门（OR gate）：
+	      \begin{figure}[H]
+		      \centering
+		      \begin{circuitikz} \draw
+			      (0,2) node[or port] (or) {}
+			      (or.in 1) node(x) [anchor=east,xshift=-0.5cm] {$ x $}
+			      (or.in 2) node(y) [anchor=east,xshift=-0.5cm] {$ y $}
+			      (or.out) node(output) [anchor=west,xshift=0.5cm] {$ x + y $}
+			      (x) -- (or.in 1)
+			      (y) -- (or.in 2)
+			      (or.out) -- (output);
+		      \end{circuitikz}
+	      \end{figure}
+
+	\item 非门（NOT gate）：
+	      \begin{figure}[H]
+		      \centering
+		      \begin{circuitikz} \draw
+			      (0,2) node[not port] (not) {}
+			      (not.in) node(x) [anchor=east,xshift=-0.5cm] {$ x $}
+			      (not.out) node(output) [anchor=west,xshift=0.5cm] {$ \overline{x} $}
+			      (x) -- (not.in)
+			      (not.out) -- (output);
+		      \end{circuitikz}
+	      \end{figure}
+\end{enumerate}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	设计一个投票表决电路，三个人中有两人赞成即通过。赞成票为1，否决表为0。
+	$$
+		F(x, y, z) = xy + xz + yz
+	$$
+	\begin{figure}[H]
+		\centering
+		\begin{circuitikz} \draw
+			(0,0) node[and port] (and3) {}
+			(0,2) node[and port] (and2) {}
+			(0,4) node[and port] (and1) {}
+			(3,2) node[or port, number inputs=3] (or) {}
+
+			(and1.in 1) node(x1) [anchor=east,xshift=-0.5cm] {$ x $}
+			(and1.in 2) node(y1) [anchor=east,xshift=-0.5cm] {$ y $}
+			(and2.in 1) node(x2) [anchor=east,xshift=-0.5cm] {$ x $}
+			(and2.in 2) node(z1) [anchor=east,xshift=-0.5cm] {$ z $}
+			(and3.in 1) node(y2) [anchor=east,xshift=-0.5cm] {$ y $}
+			(and3.in 2) node(z2) [anchor=east,xshift=-0.5cm] {$ z $}
+
+			(and1.out) node(xy) [anchor=west,xshift=0.3cm] {$ xy $}
+			(and2.out) node(xz) [anchor=north,xshift=0.3cm] {$ xz $}
+			(and3.out) node(yz) [anchor=west,xshift=0.3cm] {$ yz $}
+
+			(or.out) node(output) [anchor=west,xshift=0.5cm] {$ xy + xz + yz $}
+
+			(x1) -- (and1.in 1)
+			(y1) -- (and1.in 2)
+			(x2) -- (and2.in 1)
+			(z1) -- (and2.in 2)
+			(y2) -- (and3.in 1)
+			(z2) -- (and3.in 2)
+			(and1.out) -- (or.in 1)
+			(and2.out) -- (or.in 2)
+			(and3.out) -- (or.in 3)
+			(or.out) -- (output);
+		\end{circuitikz}
+	\end{figure}
+\end{tcolorbox}
+
+\newpage

@@ -1,0 +1,504 @@
+\chapter{数论}
+
+\section{进制转换}
+
+\subsection{进制}
+
+日常生活中都用十进制（decimal）来表示整数，十进制数由$ 0,\ 1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9 $这10个字符组成。一个十进制整数的第$ k $位的值可以由$ 10^{k-1} $计算得到。
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	十进制
+	\begin{align*}
+		256 & = 200 + 50 + 6                                  \\
+		    & = 2 \times 10^2 + 5 \times 10^1 + 6 \times 10^0
+	\end{align*}
+\end{tcolorbox}
+
+二进制（binary）、八进制（octal）、十六进制（hexadecimal）也是非常常用的表示法，例如计算机通常用二进制来做算术运算，而用八进制或十六进制来表示字符。\\
+
+\subsection{进制转换}
+
+一个$ b $进制的正整数$ n $可以唯一地构造展开式：
+
+\vspace{-0.5cm}
+
+$$
+	n = a^k \times b^k + a_{k-1} \times b^{k-1} + \dots + a_1 \times b^1 + a_0 \times b^0
+$$
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	$ b $进制转十进制\\
+	$ (1011)_2 = 1 \times 2^3 + 0 \times 2^2 + 1 \times 2^1 + 1 \times 2^0 = (11)_{10} $\\
+	$ (21022)_3 = 2 \times 3^4 + 1 \times 3^3 + 0 \times 3^2 + 2 \times 3^1 + 2 \times 3^0 = (197)_{10} $
+\end{tcolorbox}
+
+\begin{table}[H]
+	\centering
+	\setlength{\tabcolsep}{5mm}{
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textbf{十进制} & \textbf{二进制} & \textbf{八进制} & \textbf{十六进制} \\
+			\hline
+			0               & 0               & 0               & 0                 \\
+			\hline
+			1               & 1               & 1               & 1                 \\
+			\hline
+			2               & 10              & 2               & 2                 \\
+			\hline
+			3               & 11              & 3               & 3                 \\
+			\hline
+			4               & 100             & 4               & 4                 \\
+			\hline
+			5               & 101             & 5               & 5                 \\
+			\hline
+			6               & 110             & 6               & 6                 \\
+			\hline
+			7               & 111             & 7               & 7                 \\
+			\hline
+			8               & 1000            & 10              & 8                 \\
+			\hline
+			9               & 1001            & 11              & 9                 \\
+			\hline
+			10              & 1010            & 12              & A                 \\
+			\hline
+			11              & 1011            & 13              & B                 \\
+			\hline
+			12              & 1100            & 14              & C                 \\
+			\hline
+			13              & 1101            & 15              & D                 \\
+			\hline
+			14              & 1110            & 16              & E                 \\
+			\hline
+			15              & 1111            & 17              & F                 \\
+			\hline
+		\end{tabular}
+	}
+	\caption{进制转换}
+\end{table}
+
+十进制转$ b $进制还可以使用短除法的方式。
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	十进制转四进制\\
+	\begin{tabular}{rl}
+		4\mydiv{637} & remainder 1 \\
+		4\mydiv{159} & remainder 3 \\
+		4\mydiv{39}  & remainder 3 \\
+		4\mydiv{9}   & remainder 1 \\
+		4\mydiv{2}   & remainder 2
+	\end{tabular}
+	$ (637)_{10} = (21331)_4 $
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	十进制转二进制\\
+	\begin{tabular}{rl}
+		2\mydiv{637} & remainder 1 \\
+		2\mydiv{318} & remainder 0 \\
+		2\mydiv{159} & remainder 1 \\
+		2\mydiv{79}  & remainder 1 \\
+		2\mydiv{39}  & remainder 1 \\
+		2\mydiv{19}  & remainder 1 \\
+		2\mydiv{9}   & remainder 1 \\
+		2\mydiv{4}   & remainder 0 \\
+		2\mydiv{2}   & remainder 0 \\
+		2\mydiv{1}   & remainder 1
+	\end{tabular}
+	$ (637)_{10} = (1001111101)_2 $
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	十进制转八进制\\
+	\begin{tabular}{rl}
+		8\mydiv{1000} & remainder 0 \\
+		8\mydiv{125}  & remainder 5 \\
+		8\mydiv{15}   & remainder 7 \\
+		8\mydiv{1}    & remainder 1
+	\end{tabular}
+	$ (1000)_{10} = (1750)_8 $
+\end{tcolorbox}
+
+\newpage
+
+\section{素数}
+
+\subsection{素数（Prime Numbers）}
+
+基于整除性的一个重要概念就是素数，素数是大于1的且不能被1和它自身以外的正整数整除的整数。素数是现代密码学中必不可少的一部分，密码学中的大素数就用在信息加密的某些方法中。
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	判断素数\\
+	7是素数，因子有1和7。\\
+	9是合数，因为9能被3整除。
+\end{tcolorbox}
+
+每个大于1的整数都可以唯一地写成多个素数的乘积。
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	素因子分解\\
+	$ 100 = 2 \times 2 \times 5 \times 5 = 2^2 \times 5^2 $\\
+	$ 999 = 3 \times 3 \times 3 \times 37 = 3^3 \times 37 $\\
+	$ 1024 = 2^{10} $
+\end{tcolorbox}
+
+如果$ n $是一个合数，那么$ n $必有一个素因子小于或等于$ \sqrt{n} $。
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	证明101是素数\\
+	不超过$ \sqrt{101} $的素数只有$ 2, 3, 5, 7 $，因为$ 101 $不能被$ 2, 3, 5, 7 $整除，所以$ 101 $是素数。
+\end{tcolorbox}
+
+\vspace{-0.5cm}
+\begin{lstlisting}[language=Python]
+import math
+
+def is_prime(num):
+	for i in range(2, int(math.sqrt(num)) + 1):
+		if num % i == 0:
+			return False
+	return True
+
+def main():
+	print(is_prime(13))
+	print(is_prime(18))
+
+if __name__ == "__main__":
+	main()
+\end{lstlisting}
+
+埃拉托斯特尼筛法（Sieve of Eratosthenes）可以用来寻找不超过一个给定整数的所有素数。\\
+
+步骤：
+
+\begin{enumerate}
+	\item 建立包含所有给定整数以内的表格
+	\item 从$ i = 2 $开始
+	\item 移除所有整数$ n \% i == 0 $（除$ i $以外）
+	\item $ i = i + 1 $
+	\item 重复第3步和第4步
+\end{enumerate}
+
+\begin{table}[H]
+	\centering
+	\setlength{\tabcolsep}{5mm}{
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			   & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10 \\
+			\hline
+			11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 \\
+			\hline
+			21 & 22 & 23 & 24 & 25 & 26 & 27 & 28 & 29 & 30 \\
+			\hline
+		\end{tabular}
+	}
+	\caption{埃拉托斯特尼筛法}
+\end{table}
+
+\newpage
+
+\section{序列}
+
+\subsection{序列（Sequence）}
+
+序列是一种用来表示有序列表的离散结构。例如$ 1,\ 2,\ 3,\ 5,\ 8 $是一个含有五项的序列，而$ 1,\ 3,\ 9,\ 27,\ 81,\ \dots $是一个无穷序列。序列可以用记号$ \{a_n\} $表示。
+
+\begin{itemize}
+	\item 递增序列（increasing sequence）： 一个序列任意相邻的两项满足$ a_k < a_{k+1} $
+	\item 非递减序列（non-decreasing sequence）： 一个序列任意相邻的两项满足$ a_k \le a_{k+1} $
+	\item 递减序列（decreasing sequence）： 一个序列任意相邻的两项满足$ a_k > a_{k+1} $
+	\item 非递增序列（non-increasing sequence）： 一个序列任意相邻的两项满足$ a_k \ge a_{k+1} $
+\end{itemize}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	序列\\
+	$ \{a_n\},\ a_n = {1 \over n}:\ 1,\ {1 \over 2},\ {1 \over 3},\ {1 \over 4},\ \dots $\\
+	$ \{b_n\},\ b_n = 2^n:\ 1,\ 2,\ 4,\ 8,\ 16,\ 32,\ \dots $
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+\subsection{算术级数（Arithmetic Sequence）}
+
+算术级数也称等差级数，序列形式如下：
+
+\vspace{-0.5cm}
+
+$$
+	a,\ a + d,\ a + 2d,\ \dots,\ a + nd,\ \dots\ (a, d \in \mathbb{R})
+$$
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	算术级数\\
+	$ \{a_n\},\ a_n = -1 + 4n:\ -1,\ 3,\ 7,\ 11,\ \dots $\\
+	$ \{b_n\},\ b_n = 7 - 3n:\ 7,\ 4,\ 1,\ -2,\ \dots $
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+\subsection{几何级数（Geometric Sequence）}
+
+几何级数也称等比级数，序列形式如下：
+
+\vspace{-0.5cm}
+
+$$
+	a,\ ar,\ ar^2,\ \dots,\ ar^n,\ \dots,\ (a, r \in \mathbb{R})
+$$
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	几何级数\\
+	$ \{a_n\},\ a_n = (-1)^n:\ 1,\ -1,\ 1,\ -1,\ 1,\ \dots $\\
+	$ \{b_n\},\ b_n = -2 \times 5^n:\ 2,\ 10,\ 50,\ 250,\ 1250,\ \dots $\\
+	$ \{c_n\},\ c_n = 6 \times ({1 \over 3})^n:\ 6,\ 2,\ {2 \over 3},\ {2 \over 9},\ {2 \over 27},\ \dots $
+\end{tcolorbox}
+
+\newpage
+
+\section{递推关系}
+
+\subsection{递推（Recurrence）}
+
+如果数列$ \{a_n\} $的第$ n $项与它前一项的关系可以用一个公式来表示，那么这个公式就叫做这个数列的递推方程。\\
+
+算术级数的递推关系：
+
+\vspace{-1.5cm}
+
+\begin{align*}
+	a_0 & = a           \\
+	a_n & = a_{n-1} + d
+\end{align*}
+
+几何级数的递推关系：
+
+\vspace{-1.5cm}
+
+\begin{align*}
+	a_0 & = a                \\
+	a_n & = a_{n-1} \times r
+\end{align*}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	银行储蓄账户上有10000元，年利率为5.8\%，7年后账户中将有多少钱？
+	\begin{align*}
+		P_n & = P_{n-1} + 0.058P_{n-1}                      \\
+		    & = (1.058)P_{n-1}                              \\
+		\\
+		P_0 & = 10000                                       \\
+		P_1 & = (1.058)P_0                                  \\
+		P_2 & = (1.058)P_1 = (1.058)^2 P_0                  \\
+		\dots                                               \\
+		P_7 & = (1.058)P_6 = (1.058)^7 P_0 \approx 14838.83
+	\end{align*}
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+\subsection{斐波那契数列（Fibonacci Sequence）}
+
+斐波那契数列$ f_0,\ f_1,\ f_2,\ \dots $的递推公式为：
+
+\begin{align*}
+	f(n) = \begin{cases}
+		1               & n = 1 \\
+		1               & n = 2 \\
+		f(n-1) + f(n-2) & n > 3
+	\end{cases}
+\end{align*}
+
+斐波那契数列的通项公式为：
+
+$$
+	f_n = {1 \over \sqrt{5}} \left({1 + \sqrt{5} \over 2} \right)^{n+1} - {1 \over \sqrt{5}} \left({1 - \sqrt{5} \over 2} \right)^{n+1}
+$$
+
+\begin{lstlisting}[language=C, title=斐波那契数列（递归）]
+int fibonacci(int n) {
+	if(n == 1 || n == 2) {
+		return 1;
+	}
+	return fibonacci(n-2) + fibonacci(n-1);
+}
+\end{lstlisting}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[
+			level distance=2.5cm,
+			level 1/.style={sibling distance=6cm},
+			level 2/.style={sibling distance=3cm},
+			level 3/.style={sibling distance=2cm}
+		]
+		\node {$ f(5) $}
+		child {
+				node {$ f(3) $}
+				child {node {$ f(1) $}}
+				child {
+						node {$ f(2) $}
+						child {node {$ f(0) $}}
+						child {node {$ f(1) $}}
+					}
+			}
+		child {
+				node {$ f(4) $}
+				child {
+						node {$ f(2) $}
+						child {node {$ f(0) $}}
+						child {node {$ f(1) $}}
+					}
+				child {
+						node {$ f(3) $}
+						child {node {$ f(1) $}}
+						child {
+								node {$ f(2) $}
+								child {node {$ f(0) $}}
+								child {node {$ f(1) $}}
+							}
+					}
+			};
+	\end{tikzpicture}
+	\caption{递归树}
+\end{figure}
+
+\begin{lstlisting}[language=C, title=斐波那契数列（迭代）]
+int fibonacci(int n) {
+	int f[n];
+	f[0] = f[1] = 1;
+	for(int i = 2; i < n; i++) {
+		f[i] = f[i-2] + f[i-1];
+	}
+	return f[n-1];
+}
+\end{lstlisting}
+
+\newpage
+
+\section{求和}
+
+\subsection{求和（Summation）}
+
+求和符号$ \sum $可以用于表示序列中所有项的累加和。
+
+$$
+	\sum_{i=lower}^{upper} a_i
+$$
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	求和\\
+	$ \sum_{i=1}^{100} i = 1 + 2 +3 + \dots + 99 + 100 = 5050 $\\
+	$ \sum_{j=1}^{5} j^2 = 1^2 + 2^2 + 3^2 + 4^2 + 5^2 = 55 $\\
+	$ \sum_{k=4}^{6} (-1)^k = (-1)^4 + (-1)^5 + (-1)^6 = 1 - 1 + 1 = 1 $
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+\subsection{双重求和}
+
+很多情况下需要使用双重求和，比如在计算机程序中嵌套循环的分析中。\\
+
+计算双重求和的方法是先展开内层求和，再继续计算外层求和。
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	双重求和
+	\begin{align*}
+		 & \sum_{i=1}^{4} \sum_{j=1}^{3} ij \\
+		 & = \sum_{i=1}^{4} (i + 2i + 3i)   \\
+		 & = \sum_{i=1}^{4} 6i              \\
+		 & = 6 + 12 + 1 8 + 24              \\
+		 & = 60
+	\end{align*}
+\end{tcolorbox}
+
+\newpage
+
+\section{数学归纳法}
+
+\subsection{数学归纳法（Mathematical Induction）}
+
+数学归纳法是一种数学证明方法，通常被用于证明某个给定命题在一个给定范围内成立。\\
+
+数学归纳法分为三个步骤：
+
+\begin{enumerate}
+	\item 归纳基础
+	\item 归纳假设
+	\item 归纳递推
+\end{enumerate}
+
+\begin{tcolorbox}
+	\mybox{证明}
+	$ \sum_{i=1}^{n} i = {n(n+1) \over 2},\ n \in \mathbb{Z^+} $
+	\begin{enumerate}
+		\item 归纳基础：当$ n = 1 $，\\
+		      $ \sum_{i=1}^{1} i = {1(1+1) \over 2} = 1 $
+
+		\item 归纳假设：假设$ n = k $，\\
+		      $ \sum_{i=1}^{k} i = {k(k+1) \over 2} $成立
+
+		\item 归纳递推：证明$ n = k + 1 $时，
+		      \begin{align*}
+			      \sum_{i=1}^{k+1} i & = \sum_{i=1}^{k} i + k + 1  \\
+			                         & = {k(k+1) \over 2} + k + 1  \\
+			                         & = {k(k+1) + 2(k+1) \over 2} \\
+			                         & = {(k+1)(k+2) \over 2}
+		      \end{align*}
+	\end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{证明}
+	$ 2^n \ge 3n,\ n \ge 4 $
+	\begin{enumerate}
+		\item 归纳基础：当$ n = 4 $，\\
+		      $ 2^4 \ge 3 \times 4 $
+
+		\item 归纳假设：假设$ n = k\ (n > 4) $，\\
+		      $ 2^k \ge 3k $成立
+
+		\item 归纳递推：证明$ n = k + 1 $时，
+		      \begin{align*}
+			      2^{k+1} & = 2 \times 2^k  \\
+			              & \ge 2 \times 3k \\
+			              & = 3k + 3k       \\
+			              & \ge 3k + 3      \\
+			              & \ge 3(k+1)
+		      \end{align*}
+	\end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{证明}
+	对于任意正整数n，3都能够整除$ 2^{2n} - 1 $
+	\begin{enumerate}
+		\item 归纳基础：当$ n = 1 $，\\
+		      $ 2^{2 \times 1} -1 = 3 $
+
+		\item 归纳假设：假设$ n = k\ (n > 0) $，\\
+		      3能够整除$ 2^{2k} - 1 $成立，即$ 2^{2k} - 1 = 3m $
+
+		\item 归纳递推：证明$ n = k + 1 $时，
+		      \begin{align*}
+			      2^{2(k+1)} - 1 & = 2^{2k+2} - 1          \\
+			                     & = 4 \times 2^{2k} - 1   \\
+			                     & = 4 \times (3m + 1) - 1 \\
+			                     & = 4 \times 3m + 4 - 1   \\
+			                     & =3 \times (4m + 1)
+		      \end{align*}
+	\end{enumerate}
+\end{tcolorbox}
+
+\newpage
