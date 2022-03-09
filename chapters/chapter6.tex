@@ -145,7 +145,112 @@
 
 \newpage
 
-\section{概率论}
+\section{条件概率}
 
 \subsection{条件概率}
 
+在给定事件$ F $出现的条件下，事件$ E $的条件概率为
+
+\vspace{-1cm}
+
+\begin{align}
+	P(E|F) = {P(E \cap F) \over P(F)}
+\end{align}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	抛3次硬币有8种不同的情形，假设已经知道第1次抛硬币背面朝上的事件F已经出现，计算背面朝上次数为奇数事件E的概率。\\
+	$ P(F) = {1 \over 2} $\\
+	因为第1次是背面朝上，只有4种情形：背正正、背正背、背背正、背背背。出现奇数次背面的只有背正正和背背背。\\
+	$ P(E \cap F) = {2 \over 8} = {1 \over 4} $
+	\begin{align*}
+		P(E|F) = {P(E \cap F) \over P(F)} = {1/4 \over 1/2} = {1 \over 2}
+	\end{align*}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	在至少已经有一个男孩的条件下，计算一个家庭中两个孩子都为男孩的条件概率。\\
+	假设$ E $是两个孩子都为男孩的概率，$ F $是两个孩子至少有一个是男孩的概率。因此$ E = \{BB\} $，$ F = \{BB, BG, GB\} $，$ E \cap F = \{BB\} $，其中B为Boy、G为Girl。\\
+	$ P(E \cap F) = {1 \over 4} $\\
+	$ P(F) = {3 \over 4} $\\
+	$ P(E \cap F) = {2 \over 8} = {1 \over 4} $
+	\begin{align*}
+		P(E|F) = {P(E \cap F) \over P(F)} = {1/4 \over 3/4} = {1 \over 3}
+	\end{align*}
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+\subsection{独立性（Independence）}
+
+假设抛2次硬币，已知第1次是背面朝上（事件F），如果这个结果不会对第2次抛硬币也是背面朝上（事件E）产生任何影响的话，就称事件E和F是独立的。\\
+
+事件E和F是独立的，当且仅当
+
+\vspace{-1cm}
+
+\begin{align}
+	P(E \cap F) = P(E)P(F)
+\end{align}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	假设事件E是随机产生一个以1开头的4位二进制串，事件F是随机产生包含偶数个0的4位二进制串。判断E和F是否独立。\\
+	以1开头的有：1000、1001、1010、1011、1100、1101、1110、1111\\
+	偶数个0的有：0000、0011、0101、0110、1001、1010、1100、1111\\
+	$ P(E) = P(F) = {8 \over 16} = {1 \over 2} $\\
+	$ E \cap F = \{1111, 1100, 1010, 1001\} $
+	\begin{align*}
+		P(E \cap F)  = {1 \over 4} = {1 \over 2} \cdot {1 \over 2} = P(E)P(F)
+	\end{align*}
+	因此E和F是独立的。
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	假设事件E表示有两个孩子的家庭有两个男孩，事件F表示有两个孩子的家庭有至少一个男孩。判断E和F是否独立。\\
+	$ E = \{BB\},\ P(E) = {1 \over 4} $\\
+	$ P(F) = {3 \over 4} $
+	\begin{align*}
+		P(E \cap F) = {1 \over 4} \neq {1 \over 4} \cdot {3 \over 4} = P(E)P(F)
+	\end{align*}
+	因此E和F不是独立的。
+\end{tcolorbox}
+
+\newpage
+
+\section{伯努利试验}
+
+\subsection{伯努利试验（Bernoulli Trial）}
+
+假设一个试验只有两种可能的结果，例如抛一枚硬币、随机产生一个二进制位等，这种试验被称为伯努利试验。一次伯努利试验的结果成为成功或失败，如果p是一次成功的概率，q是一次失败的概率，那么$ p + q = 1 $。\\
+
+在n次独立的伯努利试验中，有k次成功的概率为
+
+\vspace{-1cm}
+
+\begin{align}
+	{n \choose k} p^k q^{n-k}
+\end{align}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	抛一枚不均匀的硬币，正面出现的概率为$ 2 \over 3 $，计算抛7次时恰好4次正面朝上的概率。
+	\begin{align*}
+		 & {7 \choose 4} \left({2 \over 3}\right)^4 \left({1 \over 3}\right)^3 \\
+		 & = {35 \cdot 16 \over 3^7}                                           \\
+		 & = {560 \over 2187}
+	\end{align*}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+	\mybox{Exercise}
+	随机产生一个10位的二进制串，0出现的概率为0.9，1出现的概率为0.1，计算恰好产生8个0的概率。
+	\begin{align*}
+		 & {10 \choose 8} \cdot 0.9^8 \cdot 0.1^2 \\
+		 & = 0.1937102445
+	\end{align*}
+\end{tcolorbox}
+
+\newpage
