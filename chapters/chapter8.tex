@@ -295,6 +295,97 @@
 	\item 浪费时间，统计稀疏图中边的个数，也就是计算邻接矩阵中元素1的个数。
 \end{enumerate}
 
+\vspace{0.5cm}
+
+\subsection{邻接表（Adjacency List）}
+
+为了解决邻接矩阵占用空间的问题，人们想到了另一种图的表示方法——邻接表。在邻接表中，图的每一个顶点都是一个链表的头结点，其后连接着该顶点能够直接到达的相邻顶点。对于稀疏图而言，邻接表存储方式占用的空间比邻接矩阵要小得多。\\
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\begin{scope}[every node/.style={circle,thick,draw}]
+			\node (A) at (0,0) {A};
+			\node (B) at (0,3) {B};
+			\node (C) at (2.5,4) {C};
+			\node (D) at (2.5,1) {D};
+		\end{scope}
+
+		\begin{scope}[>={Stealth[black]},
+			every node/.style={},
+			every edge/.style={draw=black,very thick}]
+			\path [->] (A) edge node {} (B);
+			\path [->] (A) edge node {} (C);
+			\path [<->] (C) edge node {} (D);
+			\path [->] (D) edge node {} (A);
+		\end{scope}
+	\end{tikzpicture}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\coordinate (0);
+		\foreach \t[count=\i from 0,evaluate=\i as\j using int(\i+1)] in {
+				1 $ \rightarrow $ 2,
+				,
+				3,
+				1 $ \rightarrow $ 2
+			}
+		\node at(\i.south)[anchor=north,draw,minimum height=2em,minimum width=1.5em,outer sep=0pt](\j){}
+		node at(\j.west)[align=right,left]{\i}
+		node at(\j.east)[align=left,right,xshift=-.7em]{$ \rightarrow $ \t};
+	\end{tikzpicture}
+	\caption{邻接表}
+\end{figure}
+
+通过遍历邻接表可以查找到所有能够到达的相邻顶点，但是对于逆向查找，即哪些顶点可以达到一个顶点就会很麻烦。\\
+
+逆邻接表和邻接表是正好相反的，逆邻接表每一个顶点作为链表的头结点，后继结点所存储的是能够直接到达该顶点的相邻顶点。
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\coordinate (0);
+		\foreach \t[count=\i from 0,evaluate=\i as\j using int(\i+1)] in {
+				,
+				0 $ \rightarrow $ 3,
+				0 $ \rightarrow $ 3,
+				2
+			}
+		\node at(\i.south)[anchor=north,draw,minimum height=2em,minimum width=1.5em,outer sep=0pt](\j){}
+		node at(\j.west)[align=right,left]{\i}
+		node at(\j.east)[align=left,right,xshift=-.7em]{$ \rightarrow $ \t};
+	\end{tikzpicture}
+	\caption{逆邻接表}
+\end{figure}
+
+可是，一个图要维护正反两个邻接表，也太麻烦了吧？\\
+
+通过十字链表可以把邻接表和逆邻接表结合在一起。\\
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\coordinate (0);
+		\foreach \t[count=\i from 0,evaluate=\i as\j using int(\i+1)] in {
+				1 $ \rightarrow $ 2,
+				,
+				3,
+				1 $ \rightarrow $ 2
+			}
+		\node at(\i.south)[anchor=north,draw,minimum height=2em,minimum width=1.5em,outer sep=0pt](\j){}
+		node at(\j.east)[align=right,left]{\i}
+		node at(\j.east)[align=left,right,xshift=-.7em]{$ \rightarrow $ \t};
+
+		\draw (-0.4,-0.5) node{$ \leftarrow $};
+		\draw (-1,-1.2) node{$ 3 \leftarrow 0 \leftarrow $};
+		\draw (-1,-2) node{$ 3 \leftarrow 0 \leftarrow $};
+		\draw (-0.5,-2.9) node{$ 2 \leftarrow $};
+	\end{tikzpicture}
+	\caption{十字链表}
+\end{figure}
+
 \newpage
 
 \section{特殊图}

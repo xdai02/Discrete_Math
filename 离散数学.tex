@@ -18,9 +18,11 @@
 \usepackage[most]{tcolorbox}
 \usepackage{circuitikz}
 \usepackage{stackengine}
+\usepackage[edges]{forest}
 
 \usetikzlibrary{calc,trees,positioning,arrows,fit,shapes}
 \usetikzlibrary{shapes.multipart,chains}
+\usetikzlibrary{arrows.meta}
 
 \def\rlwd{.5pt} \def\rlht{2.2ex} \def\rldp{.5ex}
 \def\mydiv#1{~
@@ -55,6 +57,10 @@
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 \definecolor{LightGray}{gray}{0.9}
+
+\tikzset{iv/.style={draw,fill=red!50,circle,minimum size=20pt,inner
+sep=0pt,text=black},ev/.style={draw,fill=yellow,rectangle,minimum
+size=20pt,inner sep=0pt,text=black}}
 
 \lstset{
     basicstyle=\linespread{1.3} \fontspec{Consolas},    %  the size of the fonts that are used for the code
@@ -175,13 +181,13 @@
 
 \setcounter{page}{1}
 
-\input{chapters/chapter1}
-\input{chapters/chapter2}
-\input{chapters/chapter3}
-\input{chapters/chapter4}
-\input{chapters/chapter5}
-\input{chapters/chapter6}
-\input{chapters/chapter7}
+% \input{chapters/chapter1}
+% \input{chapters/chapter2}
+% \input{chapters/chapter3}
+% \input{chapters/chapter4}
+% \input{chapters/chapter5}
+% \input{chapters/chapter6}
+% \input{chapters/chapter7}
 \input{chapters/chapter8}
 
 \end{document}
