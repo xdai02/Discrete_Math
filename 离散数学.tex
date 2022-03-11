@@ -23,6 +23,24 @@
 \usetikzlibrary{calc,trees,positioning,arrows,fit,shapes}
 \usetikzlibrary{shapes.multipart,chains}
 \usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.pathmorphing}
+
+\definecolor{land}{HTML}{95EA64}
+\definecolor{water}{HTML}{BBE0E3}
+\definecolor{bridge}{HTML}{FEFF9E}
+
+\tikzset{
+    contour/.style={
+        very thick,
+        decoration={
+            random steps,
+            segment length=4pt,
+            amplitude=0.5pt
+        },
+        rounded corners=1pt,
+        decorate
+    }
+}
 
 \def\rlwd{.5pt} \def\rlht{2.2ex} \def\rldp{.5ex}
 \def\mydiv#1{~
@@ -188,6 +206,7 @@ size=20pt,inner sep=0pt,text=black}}
 % \input{chapters/chapter5}
 % \input{chapters/chapter6}
 % \input{chapters/chapter7}
-\input{chapters/chapter8}
+% \input{chapters/chapter8}
+\input{chapters/graph}
 
 \end{document}
