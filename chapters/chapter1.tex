@@ -174,19 +174,15 @@
 \end{tcolorbox}
 
 \begin{lstlisting}[language=Python]
-def main():
-    for killer in ['A', 'B', 'C', 'D']:
-        if (killer != 'A') + (killer == 'C') \
-            + (killer == 'D') + (killer != 'D') == 3:
-            print(killer)
-
-if __name__ == "__main__":
-    main()
+for killer in ['A', 'B', 'C', 'D']:
+    if (killer != 'A') + (killer == 'C') \
+        + (killer == 'D') + (killer != 'D') == 3:
+        print(killer)
 \end{lstlisting}
 
 \begin{tcolorbox}
 	\mybox{运行结果}
-	C
+C
 \end{tcolorbox}
 
 \newpage
@@ -259,7 +255,7 @@ if __name__ == "__main__":
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.7]{img/C1/1-2/1.png}
+	\includegraphics[scale=0.7]{img/Chapter1/1-2/1.png}
 \end{figure}
 
 由$ p \rightarrow q $可以构造出几个相关的蕴含：

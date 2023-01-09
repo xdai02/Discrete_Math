@@ -324,19 +324,17 @@ $$
 	f_n = {1 \over \sqrt{5}} \left({1 + \sqrt{5} \over 2} \right)^{n+1} - {1 \over \sqrt{5}} \left({1 - \sqrt{5} \over 2} \right)^{n+1}
 $$
 
-\begin{lstlisting}[language=C, title=斐波那契数列（递归）]
-int fibonacci(int n) {
-	if(n == 1 || n == 2) {
-		return 1;
-	}
-	return fibonacci(n-2) + fibonacci(n-1);
-}
+\begin{lstlisting}[language=Python, title=斐波那契数列（递归）]
+def fibonacci(n):
+    if n == 1 or n == 2:
+        return 1
+    return fibonacci(n-2) + fibonacci(n-1)
 \end{lstlisting}
 
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[
-			level distance=2.5cm,
+			level distance=2.4cm,
 			level 1/.style={sibling distance=6cm},
 			level 2/.style={sibling distance=3cm},
 			level 3/.style={sibling distance=2cm}
@@ -345,42 +343,28 @@ int fibonacci(int n) {
 		child {
 				node {$ f(3) $}
 				child {node {$ f(1) $}}
-				child {
-						node {$ f(2) $}
-						child {node {$ f(0) $}}
-						child {node {$ f(1) $}}
-					}
+				child {node {$ f(2) $}}
 			}
 		child {
 				node {$ f(4) $}
-				child {
-						node {$ f(2) $}
-						child {node {$ f(0) $}}
-						child {node {$ f(1) $}}
-					}
+				child {node {$ f(2) $}}
 				child {
 						node {$ f(3) $}
 						child {node {$ f(1) $}}
-						child {
-								node {$ f(2) $}
-								child {node {$ f(0) $}}
-								child {node {$ f(1) $}}
-							}
+						child {node {$ f(2) $}}
 					}
 			};
 	\end{tikzpicture}
 	\caption{递归树}
 \end{figure}
 
-\begin{lstlisting}[language=C, title=斐波那契数列（迭代）]
-int fibonacci(int n) {
-	int f[n];
-	f[0] = f[1] = 1;
-	for(int i = 2; i < n; i++) {
-		f[i] = f[i-2] + f[i-1];
-	}
-	return f[n-1];
-}
+\begin{lstlisting}[language=Python, title=斐波那契数列（迭代）]
+def fibonacci(n):
+    f = [0] * n
+    f[0] = f[1] = 1
+    for i in range(2, n):
+        f[i] = f[i-2] + f[i-1]
+    return f[n-1]
 \end{lstlisting}
 
 \newpage

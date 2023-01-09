@@ -103,10 +103,10 @@ void swap(char *a, char *b) {
 }
 
 void permutation(char *s, int start, int end) {
-	if(start >= end) {
+	if (start >= end) {
 		printf("%s\n", s);
 	} else {
-		for(int i = start; i < end; i++) {
+		for (int i = start; i < end; i++) {
 			swap(s + i, s + start);
 			permutation(s, start + 1, end);
 			swap(s + i, s + start);

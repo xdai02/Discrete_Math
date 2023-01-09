@@ -5,7 +5,7 @@ def fibonacci(n):
 
 def main():
     n = 7
-    print("斐波那契数列第%d位：%d" % (n, fibonacci(n)))
+    print(fibonacci(n))
 
 if __name__ == "__main__":
     main()
